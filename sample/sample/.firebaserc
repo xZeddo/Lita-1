@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angulardev-109f0": {
+      "hosting": {
+        "sample": [
+          "angulardev-109f0"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angulardev-109f0"
+  }
+}
