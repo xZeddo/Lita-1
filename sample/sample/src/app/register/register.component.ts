@@ -19,8 +19,9 @@ export class RegisterComponent {
         const user = userCredential.user;
 
         set(ref(this.database, 'users/' + user.uid), {
-          username: value.username,
-          email: value.email
+          
+          email: value.email,
+          password:value.password
         });
 
         alert('user created! ');
