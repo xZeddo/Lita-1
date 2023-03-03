@@ -26,7 +26,7 @@ export class SampleComponent {
 
   }
   del(value: any){
-    remove(ref(this.database, 'accounts/' + value));
+    remove(ref(this.database, 'users/' + value));
     alert('Deleted Successfully')
   }
   email = "";
