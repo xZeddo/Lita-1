@@ -7,5 +7,5 @@ export const environment ={
       messagingSenderId: "821956436339",
       appId: "1:821956436339:web:7a1bc216c1c3a2f86a2506"
       },
-      production:true
+      production:true 
     };
