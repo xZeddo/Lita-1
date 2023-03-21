@@ -13,13 +13,15 @@ import { RegisterComponent } from './register/register.component';
 import { SampleComponent } from './sample/sample.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { PostComponent } from './post/post.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LogInComponent,
     RegisterComponent,
-    SampleComponent
+    SampleComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
