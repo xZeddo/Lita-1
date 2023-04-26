@@ -1,11 +1,12 @@
 export const environment ={
   firebase: {
-    apiKey: "AIzaSyA8UrilrUJXo2RmlI2RkQkS51Uej2OA83M",
-  authDomain: "angulardev-294eb.firebaseapp.com",
-  projectId: "angulardev-294eb",
-  storageBucket: "angulardev-294eb.appspot.com",
-  messagingSenderId: "821956436339",
-  appId: "1:821956436339:web:7a1bc216c1c3a2f86a2506"
+    apiKey: "AIzaSyCf5DKzB8jBZDGPvNHRutVr3gTqC9BI_oU",
+  authDomain: "lita-c2d5e.firebaseapp.com",
+  databaseURL: "https://lita-c2d5e-default-rtdb.firebaseio.com",
+  projectId: "lita-c2d5e",
+  storageBucket: "lita-c2d5e.appspot.com",
+  messagingSenderId: "543610783010",
+  appId: "1:543610783010:web:f34a6e9b4ff8427d19d17b"
   },
   production:false
 };

@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class LogInComponent {
   data = "";
+  email = "";
   constructor(public auth: Auth, public database: Database,private router: Router) { }
   registerUser(value: any) {
 
@@ -27,9 +28,9 @@ export class LogInComponent {
   update(ref(this.database, 'users/' + value.email),{
   last_login:date
   } );
+  sessionStorage.setItem('id',value.email);
   
-  
-  this.router.navigate(['/viewerr'])
+  this.router.navigate(['/posts'])
   }else{
   alert('wrong credential!');
   }

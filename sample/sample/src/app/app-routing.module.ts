@@ -8,8 +8,8 @@ import { SampleComponent } from './sample/sample.component';
 const routes: Routes = [
   {path: 'login',component:LogInComponent},
   {path: 'reg',component:RegisterComponent},
-  {path: 'post',component:PostComponent},
   {path: '',redirectTo:'reg',pathMatch:'full'},
+  {path: 'posts',component:PostComponent},
   {path: 'samp',component:SampleComponent}
 ];
 

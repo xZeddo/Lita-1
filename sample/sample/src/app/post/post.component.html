@@ -1,14 +1,90 @@
-<form #report="ngForm" (ngSubmit)="upload(report.value)">
+
+
+<div>
+    <nav class="navbar navbar-dark bg-dark justify-content-center">
+      <ul class="nav nav-brand">
+        <button class="btn-primary" routerLink="/login" (click)="logout()">Logout</button>
+  
+      </ul>
+  </nav>
+  </div>
+  
+  
+  <!-- Creates Post-->
+    <form #report="ngForm" (ngSubmit)="upload(report.value)">
+    <section style="background-color: #eee;">
+      <div class="container my-5 py-5">
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-12 col-lg-10 col-xl-8">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex flex-start align-items-center">
+                  <div>
+                    <h1 class="fw-bold text-primary mb-1"[(ngModel)]="name" ngModel name="name"  class="headinput" id="name" placeholder="Name">{{name}}</h1>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
+                <div class="d-flex flex-start w-100">
+                  <div class="form-outline w-100">
+                    <textarea class="form-control" id="textAreaExample" rows="4"
+                      style="background: #fff; width: 600px;" ngModel [(ngModel)]="post" name="post" id="post" placeholder="Post Something"></textarea>
+                    <label class="form-label" for="textAreaExample">Message</label>
+                  </div>
+                </div>
+                <div class="float-end mt-2 pt-1">
+                  <button type="submit" class="btn btn-primary btn-sm" ngModel [(ngModel)]="post" name="post" id="post" placeholder="post">Post </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </form>  
+  
+
+
+
+<!-- <form #report="ngForm" (ngSubmit)="upload(report.value)">
     <input type="text" style="text-align: center;font-weight: bold;font-size: 2em;" [(ngModel)]="name" ngModel name="name"  class="headinput" id="name" placeholder="Name"><br>
     <textarea type="text" class="textarea" ngModel [(ngModel)]="post" name="post" id="post" placeholder="post"></textarea><br>
     <input type="submit">
-</form>
+</form> -->
+
+
+<div class="container" *ngFor="let userr of account | async; let i = index">
+
 
 <div class="container" *ngFor="let z of account | async;let i = index">
     <div>
         
-<h4 class="a4 cross"><b> {{z.name}}</b></h4><hr>
+<h1 class="a4 cross"><b> {{z.name}}</b></h1><hr>
 <p class="center">{{z.post}}</p>
 
     </div>
+
+<!--Post Comment Text Area-->
+<form #comment="ngForm" class="comment" (ngSubmit)="commenter(comment.value)" >
+    <input type="text" [(ngModel)]="userr.id" hidden id="id" name="id" ngModel>
+    <input type="text" hidden *ngIf="this.name != ''" style="text-align: center;font-weight: bold;font-size: 2em;" [(ngModel)]="name" readonly ngModel name="name"  class="headinput" id="name" placeholder="Name"><br>
+    <input type="text"  *ngIf="this.name != ''" class="form-control" ngModel  name="post" id="post" placeholder="Write a comment.."><br><br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <button id="btn" (click)="getComment(userr.id)">Post Comments</button>
+  </form>
+  <!--Post Comment Text Area End-->
+  <br>
+  <br>
+
+
+<!-- view comments -->
+    <div class="d-flex flex-row muted-color"> <button id="btn" (click)="getComment(userr.id)">View Comments</button></div>
+
+    <div class="comment">
+    <div *ngFor="let comsec of comments | async;let commentsec = index"><span  *ngIf="userr.id == comsec.postid"><br><br>        
+    <h4 class="name font-weight-bold text-primary hand">{{comsec.name}}</h4> <br class="comment-text">{{comsec.comment}}
+
+      </span>
+    </div>
+
+</div>
 </div>

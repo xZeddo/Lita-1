@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/Lita",
+    "public": "dist/sample",
     "ignore": [
       "firebase.json",
       "**/.*",

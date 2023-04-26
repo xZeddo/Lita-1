@@ -9,11 +9,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  ab = "";
+  
   constructor(public auth: Auth, public database: Database, private router: Router) {
 
   }
-
+  uid = "";
+  ab = "";
+  role = true;
+  user = "";
   registerUser(value: any) {
     const starCountRef = ref(this.database, 'users/' + value.email);
     onValue(starCountRef, (snapshot) => {
@@ -33,10 +36,17 @@ export class RegisterComponent {
   
         
       else {
-        
-    set(ref(this.database, 'users/' + value.email), {
+        if(value.roles == "admin"){
+          this.role = true;
+        } 
+        else if(value.roles == "user"){
+          this.role = false;
+        }
+        this.uid = "user" + Math.floor(100000 + Math.random() * 900000);
+      set(ref(this.database, 'users/' + value.email), {
         email: value.email,
-        password: value.password
+        password: value.password,
+        admin: this.role
   
   
        }); 
